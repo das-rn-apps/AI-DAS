@@ -15,4 +15,15 @@ export const Colors = {
   gradientHighlightStart: '#FF8C00', // Vibrant gradient start for highlights
   gradientHighlightEnd: '#FF007F', // Bold magenta gradient end for highlights
   shadow: '#0F172A', // Rich dark shadow for depth effects
+
+  // Additional Colors for UI Elements
+  buttonBackground: '#FF6D00', // Bright orange for button background
+  buttonText: '#FFFFFF', // White text for buttons
+  inputBorder: '#3A3A5C', // Dark gray for input field borders
+  success: '#28A745', // Green for success messages or indicators
+  error: '#DC3545', // Red for error messages or alerts
+  warning: '#FFC107', // Yellow for warning messages
+  notificationBackground: '#FF007F', // Magenta background for notifications
+  modalOverlay: 'rgba(16, 17, 26, 0.7)', // Slightly transparent overlay for modals
+  link: '#00E5FF', // Cyan for clickable links
 };
