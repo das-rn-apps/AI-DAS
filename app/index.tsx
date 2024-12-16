@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StatusBar, Pressable, StyleSheet, TouchableOpacity, } from 'react-native';
+import { View, Text, Image, StatusBar, StyleSheet, } from 'react-native';
 import Footer from '@/components/Footer';
 import InputSection from '@/components/InputSection';
 import Suggestions from '@/components/Suggestions';
 import ResponseModal from '@/components/ResponseModal';
 import { Colors } from '@/constants/Colors';
-import { router } from 'expo-router';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { Ionicons } from '@expo/vector-icons';
 import Extra from '@/components/Extra';
 import { API_KEY, MODEL } from '@env';
 
@@ -15,10 +13,9 @@ const Main = () => {
   const [messages, setResponse] = useState("");
   const [userInput, setUserInput] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
-
+  console.log(API_KEY);
   const fetchAIResponse = async (question: string) => {
     if (!question.trim()) return;
-
     try {
       setModalVisible(true);
       const genAI = new GoogleGenerativeAI(API_KEY);
