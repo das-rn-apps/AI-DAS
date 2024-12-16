@@ -8,6 +8,7 @@ const App = () => {
     const [messages, setMessages] = useState([{ sender: "bot", text: "Hi! Ask me anything about AI." }]);
     const [userInput, setUserInput] = useState("");
     const scrollViewRef = useRef<ScrollView>(null);
+    console.log(API_KEY, MODEL);
 
     const fetchAIResponse = async () => {
         if (!userInput.trim()) return;

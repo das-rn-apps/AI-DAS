@@ -13,7 +13,7 @@ const Main = () => {
   const [messages, setResponse] = useState("");
   const [userInput, setUserInput] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
-  console.log(API_KEY);
+  console.log(API_KEY, MODEL);
   const fetchAIResponse = async (question: string) => {
     if (!question.trim()) return;
     try {
