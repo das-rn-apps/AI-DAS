@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/png/d.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.deepak7.AIDAS"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "995cf0f1-83d8-4ca0-a4a4-5348b9b363a3"
+      }
     }
   }
 }

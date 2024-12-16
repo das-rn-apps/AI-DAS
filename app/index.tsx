@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StatusBar,
-  Pressable,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, Image, StatusBar, Pressable, StyleSheet, TouchableOpacity, } from 'react-native';
 import Footer from '@/components/Footer';
 import InputSection from '@/components/InputSection';
 import Suggestions from '@/components/Suggestions';
@@ -17,6 +9,7 @@ import { router } from 'expo-router';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Ionicons } from '@expo/vector-icons';
 import Extra from '@/components/Extra';
+import { API_KEY, MODEL } from '@env';
 
 const Main = () => {
   const [messages, setResponse] = useState("");
@@ -28,9 +21,8 @@ const Main = () => {
 
     try {
       setModalVisible(true);
-      const apiKey = "AIzaSyBFgPCXg13WkGrgtvKiGJZW78GL3fxiNTs";
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      const model = genAI.getGenerativeModel({ model: MODEL });
       const result = await model.generateContent(question);
       const botMessageText = result.response.text();
       const botResponse = botMessageText || "Sorry, I couldn't understand that.";

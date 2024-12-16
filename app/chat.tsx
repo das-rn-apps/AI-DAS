@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, StatusBar } from "react-native";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Colors } from "@/constants/Colors";
+import { API_KEY, MODEL } from '@env';
 
 const App = () => {
     const [messages, setMessages] = useState([{ sender: "bot", text: "Hi! Ask me anything about AI." }]);
@@ -11,15 +12,14 @@ const App = () => {
     const fetchAIResponse = async () => {
         if (!userInput.trim()) return;
 
-        const apiKey = "AIzaSyBFgPCXg13WkGrgtvKiGJZW78GL3fxiNTs";
 
         const userMessage = { sender: "user", text: userInput };
         setMessages((prev) => [...prev, userMessage]);
         setUserInput("");
 
         try {
-            const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            const genAI = new GoogleGenerativeAI(API_KEY);
+            const model = genAI.getGenerativeModel({ model: MODEL });
 
             const result = await model.generateContent(userInput);
 
